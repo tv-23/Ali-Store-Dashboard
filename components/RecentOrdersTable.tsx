@@ -6,7 +6,17 @@ const statusStyles: { [key: string]: string } = {
     'Annulée': 'bg-red-100 text-red-800',
 };
 
-const OrderRow = ({ orderId, customer, date, total, status }: { orderId: string, customer: string, date: string, total: string, status: string }) => (
+// FIX: Define props with an interface and use React.FC to correctly type the component.
+// This allows React's special 'key' prop to be used without TypeScript errors.
+interface OrderRowProps {
+    orderId: string;
+    customer: string;
+    date: string;
+    total: string;
+    status: string;
+}
+
+const OrderRow: React.FC<OrderRowProps> = ({ orderId, customer, date, total, status }) => (
     <tr className="border-b border-gray-200 hover:bg-gray-50">
         <td className="py-3 px-4 text-sm font-medium text-gray-700">#{orderId}</td>
         <td className="py-3 px-4 text-sm text-gray-600">{customer}</td>

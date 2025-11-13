@@ -1,6 +1,14 @@
 import React from 'react';
 
-const LegendItem = ({ color, text, percentage }: { color: string, text: string, percentage: string }) => (
+// FIX: Define props with an interface and use React.FC to correctly type the component.
+// This allows React's special 'key' prop to be used without TypeScript errors.
+interface LegendItemProps {
+    color: string;
+    text: string;
+    percentage: string;
+}
+
+const LegendItem: React.FC<LegendItemProps> = ({ color, text, percentage }) => (
     <div className="flex items-center text-sm text-gray-600">
         <span className={`w-3 h-3 mr-2 rounded-full`} style={{ backgroundColor: color }}></span>
         <span>{text}</span>

@@ -1,6 +1,13 @@
 import React from 'react';
 
-const ChartBar = ({ height, label }: { height: string, label: string }) => (
+// FIX: Define props with an interface and use React.FC to correctly type the component.
+// This allows React's special 'key' prop to be used without TypeScript errors.
+interface ChartBarProps {
+    height: string;
+    label: string;
+}
+
+const ChartBar: React.FC<ChartBarProps> = ({ height, label }) => (
     <div className="flex-1 flex flex-col items-center justify-end">
         <div 
             className="w-8 bg-[#4CAF50] rounded-t-md hover:bg-green-600 transition-colors" 

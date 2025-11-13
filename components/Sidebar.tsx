@@ -1,6 +1,15 @@
 import React from 'react';
 
-const SidebarLink = ({ icon, text, active = false, onClick }: { icon: React.ReactElement, text: string, active?: boolean, onClick: () => void }) => {
+// FIX: Define props with an interface and use React.FC to correctly type the component.
+// This allows React's special 'key' prop to be used without TypeScript errors.
+interface SidebarLinkProps {
+    icon: React.ReactElement;
+    text: string;
+    active?: boolean;
+    onClick: () => void;
+}
+
+const SidebarLink: React.FC<SidebarLinkProps> = ({ icon, text, active = false, onClick }) => {
     const baseClasses = "flex items-center w-full px-4 py-3 text-gray-700 rounded-lg transition-colors duration-200 text-left";
     const activeClasses = "bg-[#4CAF50] text-white font-bold shadow-md";
     const hoverClasses = "hover:bg-gray-200 hover:text-gray-800";
