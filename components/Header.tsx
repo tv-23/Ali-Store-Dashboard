@@ -1,9 +1,14 @@
 import React from 'react';
 
-const Header = () => {
+const Header = ({ onMenuClick }: { onMenuClick: () => void }) => {
     return (
         <header className="flex items-center justify-between px-6 py-4 bg-white border-b-2 border-gray-200 shadow-sm">
             <div className="flex items-center">
+                 <button onClick={onMenuClick} className="text-gray-500 focus:outline-none md:hidden mr-4">
+                    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                </button>
                 <div className="relative">
                     <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                         <svg className="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
